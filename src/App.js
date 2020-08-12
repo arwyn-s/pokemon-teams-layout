@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ThemeProvider } from "@material-ui/core/styles";
+
+import { master } from "./context/themes";
+
+import Topbar from "./components/Topbar";
+import ShowContent from "./components/ShowContent";
+import { FilterProvider } from "./context/FilterContext";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<ThemeProvider theme={master}>
+			<FilterProvider>
+				<Topbar />
+				<ShowContent />
+			</FilterProvider>
+		</ThemeProvider>
+	);
 }
 
 export default App;
